@@ -9,7 +9,7 @@ namespace MVC_Start.Controllers
 {
   public class HomeController : Controller
   {
-    public IActionResult Index()
+    public IActionResult Index(int id)
     {
       return View();
     }
@@ -17,6 +17,35 @@ namespace MVC_Start.Controllers
     public IActionResult IndexWithLayout()
     {
       return View();
+    }
+
+    public IActionResult Contact()
+    {
+      GuestContact contact = new GuestContact();
+
+      contact.Name = "Manish Agrawal";
+      contact.Email = "magrawal@usf.edu";
+      contact.Phone = "813-974-6716";
+
+      
+      /* alternate syntax to initialize object 
+      GuestContact contact2 = new GuestContact
+      {
+        Name = "Manish Agrawal",
+        Email = "magrawal@usf.edu",
+        Phone = "813-974-6716"
+      };
+      */
+
+      //ViewData["Message"] = "Your contact page.";
+
+      return View(contact);
+    }
+
+    [HttpPost]
+    public IActionResult Contact(GuestContact contact)
+    {
+      return View(contact);
     }
 
     /// <summary>

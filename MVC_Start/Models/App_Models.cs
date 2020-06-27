@@ -19,4 +19,6 @@ namespace MVC_Start.Models
     public string Data { get; set; }
     public string Title { get; set; }
   }
+
+  
 }
